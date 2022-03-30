@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="col-lg-8 form-inner-cont">
+        <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="signin-form">
+            <div class="form-grids">
+                <div class="form-input">
+                    <input type="text" name="w3lName" id="w3lName" placeholder="Enter your name *" required="" />
+                </div>
+                <div class="form-input">
+                    <input type="text" name="w3lSubject" id="w3lSubject" placeholder="Enter subject " required />
+                </div>
+                <div class="form-input">
+                    <input type="email" name="w3lSender" id="w3lSender" placeholder="Enter your email *" required />
+                </div>
+                <div class="form-input">
+                    <input type="text" name="w3lPhone" id="w3lPhone" placeholder="Enter your Phone Number *" required />
+                </div>
+            </div>
+            <div class="form-input">
+                <textarea name="w3lMessage" id="w3lMessage" placeholder="Type your query here" required=""></textarea>
+            </div>
+            <div class="text-right">
+                <button class="btn btn-style btn-primary">Submit Now</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        var sendButton = document.querySelector('form.signin-form button.btn.btn-style.btn-primary');
+        sendButton.onclick = function () {
+            var name = document.querySelector('input[name="w3lName"]');
+            var subject = document.querySelector('input[name="w3lSubject"]');
+            var sender = document.querySelector('input[name="w3lSender"]');
+            var phone = document.querySelector('input[name="w3lPhone"]');
+            var message = document.querySelector('textarea[name="w3lMessage"]');
+            var validation = [];
+            var validationText = 'Algunos campos estan vacios \n\n';
+            if (name && name.value == '') {
+                validation.push('Campo de nombre es requerido');
+            }
+            if (subject && subject.value == '') {
+                validation.push('Campo de asunto es requerido');
+            }
+            if (sender && sender.value == '') {
+                validation.push('Campo de remitente es requerido');
+            }
+            if (phone && phone.value == '') {
+                validation.push('Campo de Telefono es requerido');
+            }
+            if (message && message.value == '') {
+                validation.push('Descripción del mensaje es requerido');
+            }
+            for (i = 0; i < validation.length; i++) {
+                validationText += validation[i] + '\n';
+            }
+            if (validation.length > 0) {
+                alert(validationText);
+            } else {
+                alert('¡Formulario enviado exitosamente!');
+            }
+        };
+    </script>
+</body>
+
+</html>
